@@ -1,0 +1,35 @@
+{
+  "tournament": {
+    "name": "دوري الفقيد محمد قاسم الحجري - النسخة الرسمية",
+    "shortName": "دوري سالفون رمضان",
+    "season": "رمضان 1447",
+    "startDate": "2026-02-20",
+    "endDate": "2026-02-20",
+    "format": {
+      "groupStage": true,
+      "playoffs": true,
+      "playoffTeams": 4
+    },
+    "branding": {
+      "sponsor": "الداعم الرسمي: عبدالكريم الحجري",
+      "tribute": "دعواتكم للفقيد بالرحمة",
+      "colors": {
+        "primary": "#1e40af",
+        "secondary": "#dc2626",
+        "accent": "#16a34a"
+      }
+    },
+    "settings": {
+      "pointsWin": 3,
+      "pointsDraw": 1,
+      "pointsLoss": 0,
+      "darkMode": false,
+      "language": "ar"
+    }
+  },
+  "admin": {
+    "passwordHash": "5e884898da28047151d0e56f8dc6292773603d0d6aabbdd62a11ef721d1542d8",
+    "sessionTimeout": 3600000,
+    "maxLoginAttempts": 3
+  }
+}

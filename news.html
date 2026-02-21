@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الأخبار - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون رمضان</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link active">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>أخبار البطولة</h1>
+            <p class="page-subtitle">آخر الأخبار والتطورات في دوري سالفون رمضان</p>
+        </div>
+
+        <!-- Featured News -->
+        <section class="featured-news" id="featured-section">
+            <h2>الأخبار المميزة</h2>
+            <div id="featured-news-container" class="featured-container">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- News Filters -->
+        <section class="news-filters">
+            <div class="filters-row">
+                <div class="filter-group">
+                    <label for="category-filter">تصفية حسب الفئة:</label>
+                    <select id="category-filter" class="filter-select">
+                        <option value="all">جميع الفئات</option>
+                        <option value="announcement">إعلانات</option>
+                        <option value="match_report">تقارير المباريات</option>
+                        <option value="general">أخبار عامة</option>
+                    </select>
+                </div>
+
+                <div class="search-group">
+                    <input type="text" id="search-input" placeholder="البحث في الأخبار..." class="search-input">
+                    <button id="search-btn" class="search-btn">بحث</button>
+                    <button id="clear-search" class="clear-btn">مسح</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Statistics -->
+        <section class="news-stats">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-articles">0</span>
+                    <span class="stat-label">إجمالي الأخبار</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="recent-articles">0</span>
+                    <span class="stat-label">أخبار هذا الأسبوع</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="match-reports">0</span>
+                    <span class="stat-label">تقارير المباريات</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-views">0</span>
+                    <span class="stat-label">إجمالي المشاهدات</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- News Categories -->
+        <section class="news-categories">
+            <h2>تصفح حسب الفئة</h2>
+            <div class="categories-grid">
+                <div class="category-card" data-category="announcement">
+                    <div class="category-icon">📢</div>
+                    <h3>الإعلانات</h3>
+                    <span class="category-count" id="announcements-count">0</span>
+                </div>
+                <div class="category-card" data-category="match_report">
+                    <div class="category-icon">⚽</div>
+                    <h3>تقارير المباريات</h3>
+                    <span class="category-count" id="reports-count">0</span>
+                </div>
+                <div class="category-card" data-category="general">
+                    <div class="category-icon">📰</div>
+                    <h3>أخبار عامة</h3>
+                    <span class="category-count" id="general-count">0</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- News List -->
+        <section class="news-list">
+            <div class="list-header">
+                <h2>جميع الأخبار</h2>
+                <div class="sort-controls">
+                    <label for="sort-select">ترتيب حسب:</label>
+                    <select id="sort-select" class="sort-select">
+                        <option value="date-desc">الأحدث أولاً</option>
+                        <option value="date-asc">الأقدم أولاً</option>
+                        <option value="views-desc">الأكثر مشاهدة</option>
+                        <option value="title-asc">العنوان (أ-ي)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="news-container" class="news-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+
+            <!-- Load More Button -->
+            <div class="load-more-section" id="load-more-section">
+                <button id="load-more-btn" class="load-more-btn">تحميل المزيد</button>
+            </div>
+
+            <!-- No Results Message -->
+            <div id="no-results" class="no-results" style="display: none;">
+                <div class="no-results-icon">📰</div>
+                <h3>لا توجد أخبار</h3>
+                <p>لم يتم العثور على أخبار تطابق معايير البحث المحددة.</p>
+            </div>
+        </section>
+
+        <!-- Most Viewed Articles -->
+        <section class="most-viewed">
+            <h2>الأكثر مشاهدة</h2>
+            <div id="most-viewed-container" class="most-viewed-list">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Recent Match Reports -->
+        <section class="recent-reports" id="recent-reports-section">
+            <h2>آخر تقارير المباريات</h2>
+            <div id="recent-reports-container" class="reports-list">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار </p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <!-- Article Modal -->
+    <div id="article-modal" class="modal">
+        <div class="modal-content article-modal-content">
+            <div class="modal-header">
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="article-modal-body">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/news.js"></script>
+</body>
+</html>

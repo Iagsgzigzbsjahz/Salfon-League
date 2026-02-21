@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>دوري الفقيد محمد قاسم الحجري - النسخة الرسمية</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون الرمضاني</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link active">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <h1 class="hero-title">دوري الفقيد محمد قاسم الحجري</h1>
+                <p class="hero-subtitle">النسخة الرسمية - رمضان 1447</p>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">فرق</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">21</span>
+                        <span class="stat-label">مباراة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">مؤهلين للنهائيات</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Match Section -->
+        <section class="next-match">
+            <h2>المباراة القادمة</h2>
+            <div id="next-match-card" class="match-card">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <div id="countdown-timer" class="countdown">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Last Match Result -->
+        <section class="last-match">
+            <h2>آخر النتائج</h2>
+            <div id="last-match-result" class="match-result">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Top 4 Standings Preview -->
+        <section class="standings-preview">
+            <h2>ترتيب المؤهلين للنهائيات</h2>
+            <div id="top-standings" class="standings-table">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <a href="standings.html" class="view-all-btn">عرض الترتيب الكامل</a>
+        </section>
+
+        <!-- Latest News -->
+        <section class="latest-news">
+            <h2>آخر الأخبار</h2>
+            <div id="news-preview" class="news-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+            <a href="news.html" class="view-all-btn">عرض جميع الأخبار</a>
+        </section>
+
+        <!-- Sponsor Section -->
+        <section class="sponsor">
+            <div class="sponsor-content">
+                <h3>الداعم الرسمي: عبدالكريم الحجري</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار</p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
+
+
+<!-- 
+
+I'll read the current task list and continue with the implementation. Let me check the tasks.md file to see what needs to be completed next.
+
+I can see we're making good progress on the implementation. Looking at the task list, I notice that task 10.1 (Create main UI Controller) is marked as queued (~), and several other tasks in sections 10-14 are also queued. Let me check what's been completed and continue with the next logical task.
+
+Let me read some key files to understand the current state:
+
+Now I can see the current state. The index.html is set up but references CSS files that don't exist yet, and it needs a main.js file to handle the UI functionality. Looking at the task list, I need to work on task 10.1 (Create main UI Controller) which is currently queued.
+
+Let me update the task status and start implementing the main UI controller:
+
+Now I'll create the main UI controller that will handle the homepage functionality:
+
+Now I need to create the CSS files that are referenced in the HTML. Let me start with the main CSS file:
+
+Now let me create the responsive CSS file:
+
+Now let me complete the task by marking it as completed:
+
+Now let me continue with the next task. Looking at the task list, I need to work on task 11.1 (Create responsive CSS framework) which is queued. Let me update its status and create the admin CSS file that's also needed:
+
+I've already created the main responsive CSS framework. Now let me create the admin-specific CSS file:
+
+Now let me complete the responsive CSS framework task:
+
+Now let me continue with the next task. I need to create the rules page (task 10.4). Let me update its status and create the rules.html file:
+
+Now let me check what other tasks need to be completed. Let me work on task 13.1 (Create playoff bracket generation):
+
+Let me create a playoff system engine:
+
+Now let me work on task 14.1 (Wire all components together):
+
+Let me check if there are any missing team logos or images that need to be created. First, let me check the teams data:
+
+I need to create placeholder team logos. Let me create the images directory structure and some simple SVG logos:
+
+-->

@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>لوحة التحكم الإدارية - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <!-- Login Screen -->
+    <div id="login-screen" class="login-screen">
+        <div class="login-container">
+            <div class="login-header">
+                <h1>لوحة التحكم الإدارية</h1>
+                <p>دوري الفقيد محمد قاسم الحجري</p>
+            </div>
+            <form id="login-form" class="login-form">
+                <div class="form-group">
+                    <label for="admin-password">كلمة المرور:</label>
+                    <input type="password" id="admin-password" required>
+                </div>
+                <button type="submit" class="login-btn">دخول</button>
+                <div id="login-error" class="error-message" style="display: none;"></div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="admin-dashboard" class="admin-dashboard" style="display: none;">
+        <header class="admin-header">
+            <div class="admin-nav">
+                <h1>لوحة التحكم</h1>
+                <div class="admin-controls">
+                    <span id="admin-session-info" class="session-info"></span>
+                    <button id="logout-btn" class="logout-btn">خروج</button>
+                </div>
+            </div>
+        </header>
+
+        <div class="admin-content">
+            <!-- Sidebar Navigation -->
+            <aside class="admin-sidebar">
+                <nav class="admin-menu">
+                    <ul>
+                        <li><a href="#dashboard" class="menu-link active" data-section="dashboard">📊 الرئيسية</a></li>
+                        <li><a href="#matches" class="menu-link" data-section="matches">⚽ إدارة المباريات</a></li>
+                        <li><a href="#news" class="menu-link" data-section="news">📰 إدارة الأخبار</a></li>
+                        <li><a href="#settings" class="menu-link" data-section="settings">⚙️ الإعدادات</a></li>
+                        <li><a href="#backup" class="menu-link" data-section="backup">💾 النسخ الاحتياطية</a></li>
+                        <li><a href="#logs" class="menu-link" data-section="logs">📋 سجل الأنشطة</a></li>
+                    </ul>
+                </nav>
+            </aside>
+
+            <!-- Main Content Area -->
+            <main class="admin-main">
+                <!-- Dashboard Section -->
+                <section id="dashboard-section" class="admin-section active">
+                    <h2>لوحة المعلومات</h2>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">⚽</div>
+                            <div class="stat-info">
+                                <h3 id="total-matches">0</h3>
+                                <p>إجمالي المباريات</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">✅</div>
+                            <div class="stat-info">
+                                <h3 id="played-matches">0</h3>
+                                <p>مباريات منتهية</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">📰</div>
+                            <div class="stat-info">
+                                <h3 id="total-news">0</h3>
+                                <p>إجمالي الأخبار</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">👥</div>
+                            <div class="stat-info">
+                                <h3 id="total-teams">7</h3>
+                                <p>الفرق المشاركة</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-content">
+                        <div class="dashboard-section">
+                            <h3>ترتيب الفرق المؤهلة</h3>
+                            <div id="top-standings" class="standings-preview">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+
+                        <div class="dashboard-section">
+                            <h3>آخر الأنشطة</h3>
+                            <div id="recent-activities" class="activities-list">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Matches Management Section -->
+                <section id="matches-section" class="admin-section">
+                    <h2>إدارة المباريات</h2>
+                    
+                    <div class="section-controls">
+                        <button id="refresh-matches" class="btn-secondary">تحديث القائمة</button>
+                    </div>
+
+                    <div class="matches-list">
+                        <div class="list-header">
+                            <h3>قائمة المباريات</h3>
+                            <div class="filter-controls">
+                                <select id="match-status-filter">
+                                    <option value="all">جميع المباريات</option>
+                                    <option value="scheduled">مجدولة</option>
+                                    <option value="played">منتهية</option>
+                                    <option value="postponed">مؤجلة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="matches-container" class="matches-container">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- News Management Section -->
+                <section id="news-section" class="admin-section">
+                    <h2>إدارة الأخبار</h2>
+                    
+                    <div class="section-controls">
+                        <button id="add-news-btn" class="btn-primary">إضافة خبر جديد</button>
+                        <button id="refresh-news" class="btn-secondary">تحديث القائمة</button>
+                    </div>
+
+                    <div class="news-list">
+                        <div class="list-header">
+                            <h3>قائمة الأخبار</h3>
+                            <div class="filter-controls">
+                                <select id="news-category-filter">
+                                    <option value="all">جميع الفئات</option>
+                                    <option value="announcement">إعلانات</option>
+                                    <option value="match_report">تقارير المباريات</option>
+                                    <option value="general">أخبار عامة</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="news-container" class="news-container">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Settings Section -->
+                <section id="settings-section" class="admin-section">
+                    <h2>الإعدادات</h2>
+                    
+                    <div class="settings-content">
+                        <div class="settings-group">
+                            <h3>تغيير كلمة المرور</h3>
+                            <form id="change-password-form" class="settings-form">
+                                <div class="form-group">
+                                    <label for="current-password">كلمة المرور الحالية:</label>
+                                    <input type="password" id="current-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="new-password">كلمة المرور الجديدة:</label>
+                                    <input type="password" id="new-password" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="confirm-password">تأكيد كلمة المرور:</label>
+                                    <input type="password" id="confirm-password" required>
+                                </div>
+                                <button type="submit" class="btn-primary">تغيير كلمة المرور</button>
+                            </form>
+                        </div>
+
+                        <div class="settings-group">
+                            <h3>معلومات النظام</h3>
+                            <div id="system-info" class="system-info">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Backup Section -->
+                <section id="backup-section" class="admin-section">
+                    <h2>النسخ الاحتياطية</h2>
+                    
+                    <div class="backup-content">
+                        <div class="backup-group">
+                            <h3>إنشاء نسخة احتياطية</h3>
+                            <p>قم بإنشاء نسخة احتياطية من جميع بيانات النظام</p>
+                            <button id="create-backup-btn" class="btn-primary">إنشاء نسخة احتياطية</button>
+                        </div>
+
+                        <div class="backup-group">
+                            <h3>استعادة نسخة احتياطية</h3>
+                            <p>استعادة البيانات من نسخة احتياطية سابقة</p>
+                            <input type="file" id="backup-file-input" accept=".json" style="display: none;">
+                            <button id="restore-backup-btn" class="btn-secondary">اختيار ملف للاستعادة</button>
+                        </div>
+
+                        <div class="backup-info">
+                            <h3>معلومات النسخ الاحتياطية</h3>
+                            <div id="backup-info-content">
+                                <!-- Will be populated by JavaScript -->
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Logs Section -->
+                <section id="logs-section" class="admin-section">
+                    <h2>سجل الأنشطة</h2>
+                    
+                    <div class="section-controls">
+                        <button id="refresh-logs" class="btn-secondary">تحديث السجل</button>
+                        <button id="clear-logs-btn" class="btn-danger">مسح السجل</button>
+                    </div>
+
+                    <div class="logs-content">
+                        <div id="logs-container" class="logs-container">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- Match Edit Modal -->
+    <div id="match-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="match-modal-title">تحرير المباراة</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="match-form" class="admin-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="home-goals">أهداف الفريق المضيف:</label>
+                            <input type="number" id="home-goals" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label for="away-goals">أهداف الفريق الضيف:</label>
+                            <input type="number" id="away-goals" min="0">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="match-status">حالة المباراة:</label>
+                        <select id="match-status">
+                            <option value="scheduled">مجدولة</option>
+                            <option value="played">منتهية</option>
+                            <option value="postponed">مؤجلة</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="best-player">أفضل لاعب:</label>
+                        <input type="text" id="best-player" placeholder="اسم أفضل لاعب">
+                    </div>
+                    <div class="form-group" id="postponement-group" style="display: none;">
+                        <label for="postponement-reason">سبب التأجيل:</label>
+                        <textarea id="postponement-reason" placeholder="أدخل سبب تأجيل المباراة"></textarea>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">حفظ التغييرات</button>
+                        <button type="button" class="btn-secondary" onclick="window.adminController.closeModal()">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- News Edit Modal -->
+    <div id="news-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h3 id="news-modal-title">إضافة خبر جديد</h3>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form id="news-form" class="admin-form">
+                    <div class="form-group">
+                        <label for="news-title">العنوان:</label>
+                        <input type="text" id="news-title" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="news-category">الفئة:</label>
+                            <select id="news-category" required>
+                                <option value="announcement">إعلان</option>
+                                <option value="match_report">تقرير مباراة</option>
+                                <option value="general">خبر عام</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="news-author">الكاتب:</label>
+                            <input type="text" id="news-author" value="إدارة البطولة">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="news-content">المحتوى:</label>
+                        <textarea id="news-content" rows="10" required></textarea>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="news-tags">الكلمات المفتاحية (مفصولة بفواصل):</label>
+                            <input type="text" id="news-tags" placeholder="كلمة1, كلمة2, كلمة3">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" id="news-featured"> خبر مميز
+                            </label>
+                        </div>
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">حفظ الخبر</button>
+                        <button type="button" class="btn-secondary" onclick="window.adminController.closeModal()">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/admin.js"></script>
+</body>
+</html>

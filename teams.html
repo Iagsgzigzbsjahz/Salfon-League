@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الفرق - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون رمضان</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link active">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>فرق البطولة</h1>
+            <p class="page-subtitle">تعرف على الفرق المشاركة في دوري سالفون رمضان</p>
+        </div>
+
+        <!-- Tournament Overview -->
+        <section class="tournament-overview">
+            <div class="overview-stats">
+                <div class="stat-item">
+                    <span class="stat-number">7</span>
+                    <span class="stat-label">فرق مشاركة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="qualified-teams">4</span>
+                    <span class="stat-label">فرق مؤهلة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="total-players">42</span>
+                    <span class="stat-label">لاعب مشارك</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="average-goals">0.0</span>
+                    <span class="stat-label">متوسط الأهداف</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Teams Grid -->
+        <section class="teams-section">
+            <div class="section-header">
+                <h2>جميع الفرق</h2>
+                <div class="view-controls">
+                    <button id="grid-view" class="view-btn active">عرض شبكي</button>
+                    <button id="list-view" class="view-btn">عرض قائمة</button>
+                </div>
+            </div>
+
+            <div id="teams-container" class="teams-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- League Rankings -->
+        <section class="league-rankings">
+            <h2>تصنيفات البطولة</h2>
+            <div class="rankings-tabs">
+                <button class="ranking-tab active" data-ranking="points">الترتيب العام</button>
+                <button class="ranking-tab" data-ranking="goalsScored">أكثر تسجيلاً</button>
+                <button class="ranking-tab" data-ranking="goalsConceded">أقل استقبالاً</button>
+                <button class="ranking-tab" data-ranking="cleanSheets">الشباك النظيفة</button>
+            </div>
+            <div id="rankings-content" class="rankings-content">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Team Comparison -->
+        <section class="team-comparison">
+            <h2>مقارنة الفرق</h2>
+            <div class="comparison-controls">
+                <div class="team-selector">
+                    <label for="team1-select">الفريق الأول:</label>
+                    <select id="team1-select" class="team-select">
+                        <option value="">اختر فريق</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+                <div class="vs-divider">×</div>
+                <div class="team-selector">
+                    <label for="team2-select">الفريق الثاني:</label>
+                    <select id="team2-select" class="team-select">
+                        <option value="">اختر فريق</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+                <button id="compare-btn" class="compare-btn">مقارنة</button>
+            </div>
+            <div id="comparison-result" class="comparison-result" style="display: none;">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Awards and Achievements -->
+        <section class="team-awards">
+            <h2>الجوائز والإنجازات</h2>
+            <div id="awards-container" class="awards-grid">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار </p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <!-- Team Details Modal -->
+    <div id="team-modal" class="modal">
+        <div class="modal-content large-modal">
+            <div class="modal-header">
+                <h2 id="team-modal-title">تفاصيل الفريق</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="team-modal-body">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/teams.js"></script>
+</body>
+</html>

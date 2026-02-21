@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الإحصائيات - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون رمضان</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link active">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>إحصائيات البطولة</h1>
+            <p class="page-subtitle">تحليل شامل لأداء الفرق واللاعبين في دوري سالفون رمضان</p>
+        </div>
+
+        <!-- Tournament Overview -->
+        <section class="tournament-overview-stats">
+            <h2>نظرة عامة على البطولة</h2>
+            <div class="overview-grid">
+                <div class="overview-card">
+                    <div class="card-icon">⚽</div>
+                    <div class="card-content">
+                        <h3 id="total-matches">0</h3>
+                        <p>إجمالي المباريات</p>
+                        <span class="card-detail" id="completion-percentage">0% مكتملة</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">🥅</div>
+                    <div class="card-content">
+                        <h3 id="total-goals">0</h3>
+                        <p>إجمالي الأهداف</p>
+                        <span class="card-detail" id="average-goals">0.0 متوسط/مباراة</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">🏆</div>
+                    <div class="card-content">
+                        <h3 id="home-wins">0</h3>
+                        <p>انتصارات أرض الملعب</p>
+                        <span class="card-detail" id="home-win-percentage">0%</span>
+                    </div>
+                </div>
+                <div class="overview-card">
+                    <div class="card-icon">✈️</div>
+                    <div class="card-content">
+                        <h3 id="away-wins">0</h3>
+                        <p>انتصارات خارج الأرض</p>
+                        <span class="card-detail" id="away-win-percentage">0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Statistics Categories -->
+        <section class="stats-categories">
+            <div class="category-tabs">
+                <button class="category-tab active" data-category="players">إحصائيات اللاعبين</button>
+                <button class="category-tab" data-category="teams">إحصائيات الفرق</button>
+                <button class="category-tab" data-category="matches">إحصائيات المباريات</button>
+                <button class="category-tab" data-category="records">الأرقام القياسية</button>
+            </div>
+
+            <!-- Players Statistics -->
+            <div id="players-stats" class="stats-content active">
+                <div class="stats-section">
+                    <h3>أفضل الهدافين</h3>
+                    <div id="top-scorers" class="scorers-table">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أفضل اللاعبين</h3>
+                    <div id="best-players" class="best-players-list">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>إحصائيات اللاعبين</h3>
+                    <div class="player-stats-grid">
+                        <div class="stat-card">
+                            <h4>إجمالي اللاعبين</h4>
+                            <span class="stat-number" id="total-players">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>متوسط الأهداف/لاعب</h4>
+                            <span class="stat-number" id="avg-goals-per-player">0.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Teams Statistics -->
+            <div id="teams-stats" class="stats-content">
+                <div class="stats-section">
+                    <h3>أفضل هجوم</h3>
+                    <div id="best-attack" class="team-stat-card">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أفضل دفاع</h3>
+                    <div id="best-defense" class="team-stat-card">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أكثر الفرق فوزاً</h3>
+                    <div id="most-wins" class="team-stat-card">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أفضل أداء على أرض الملعب</h3>
+                    <div id="best-home" class="team-stat-card">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أفضل أداء خارج الأرض</h3>
+                    <div id="best-away" class="team-stat-card">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Matches Statistics -->
+            <div id="matches-stats" class="stats-content">
+                <div class="stats-section">
+                    <h3>توزيع النتائج</h3>
+                    <div class="results-distribution">
+                        <div class="result-item">
+                            <div class="result-bar">
+                                <div class="bar-fill home-wins" id="home-wins-bar"></div>
+                            </div>
+                            <span class="result-label">انتصارات أرض الملعب</span>
+                            <span class="result-count" id="home-wins-count">0</span>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-bar">
+                                <div class="bar-fill away-wins" id="away-wins-bar"></div>
+                            </div>
+                            <span class="result-label">انتصارات خارج الأرض</span>
+                            <span class="result-count" id="away-wins-count">0</span>
+                        </div>
+                        <div class="result-item">
+                            <div class="result-bar">
+                                <div class="bar-fill draws" id="draws-bar"></div>
+                            </div>
+                            <span class="result-label">التعادلات</span>
+                            <span class="result-count" id="draws-count">0</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>أكثر المباريات تسجيلاً للأهداف</h3>
+                    <div id="highest-scoring-match" class="match-highlight">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <div class="stats-section">
+                    <h3>إحصائيات الأهداف</h3>
+                    <div class="goals-stats-grid">
+                        <div class="stat-card">
+                            <h4>أعلى عدد أهداف في مباراة</h4>
+                            <span class="stat-number" id="highest-goals-match">0</span>
+                        </div>
+                        <div class="stat-card">
+                            <h4>متوسط الأهداف/مباراة</h4>
+                            <span class="stat-number" id="avg-goals-match">0.0</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Records -->
+            <div id="records-stats" class="stats-content">
+                <div class="stats-section">
+                    <h3>الأرقام القياسية</h3>
+                    <div class="records-grid">
+                        <div class="record-card" id="biggest-win-record">
+                            <div class="record-icon">🏆</div>
+                            <div class="record-content">
+                                <h4>أكبر فوز</h4>
+                                <p class="record-detail">-</p>
+                            </div>
+                        </div>
+
+                        <div class="record-card" id="most-goals-record">
+                            <div class="record-icon">⚽</div>
+                            <div class="record-content">
+                                <h4>أكثر مباراة تسجيلاً</h4>
+                                <p class="record-detail">-</p>
+                            </div>
+                        </div>
+
+                        <div class="record-card" id="clean-sheet-record">
+                            <div class="record-icon">🛡️</div>
+                            <div class="record-content">
+                                <h4>أكثر الشباك نظافة</h4>
+                                <p class="record-detail">-</p>
+                            </div>
+                        </div>
+
+                        <div class="record-card" id="winning-streak-record">
+                            <div class="record-icon">🔥</div>
+                            <div class="record-content">
+                                <h4>أطول سلسلة انتصارات</h4>
+                                <p class="record-detail">-</p>
+                            </div>
+                        </div>
+
+                        <div class="record-card" id="unbeaten-streak-record">
+                            <div class="record-icon">💪</div>
+                            <div class="record-content">
+                                <h4>أطول سلسلة عدم هزيمة</h4>
+                                <p class="record-detail">-</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Team Performance Analytics -->
+        <section class="performance-analytics">
+            <h2>تحليل الأداء</h2>
+            <div class="analytics-controls">
+                <label for="team-select">اختر فريق للتحليل:</label>
+                <select id="team-select" class="team-select">
+                    <option value="">اختر فريق</option>
+                    <!-- Will be populated by JavaScript -->
+                </select>
+                <button id="analyze-btn" class="analyze-btn">تحليل</button>
+            </div>
+            <div id="analytics-result" class="analytics-result" style="display: none;">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Export Options -->
+        <section class="export-section">
+            <h2>تصدير الإحصائيات</h2>
+            <div class="export-controls">
+                <button id="export-json" class="export-btn">تصدير JSON</button>
+                <button id="export-csv" class="export-btn">تصدير CSV</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار </p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <script type="module" src="js/stats.js"></script>
+</body>
+</html>

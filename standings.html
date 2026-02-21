@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الترتيب - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون رمضان</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link active">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>ترتيب الفرق</h1>
+            <p class="page-subtitle">الترتيب الحالي للبطولة</p>
+        </div>
+
+        <!-- Tournament Progress -->
+        <section class="tournament-progress">
+            <div class="progress-stats">
+                <div class="stat-card">
+                    <span class="stat-number" id="played-matches">0</span>
+                    <span class="stat-label">مباراة لُعبت</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="remaining-matches">21</span>
+                    <span class="stat-label">مباراة متبقية</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="total-goals">0</span>
+                    <span class="stat-label">إجمالي الأهداف</span>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number" id="average-goals">0.0</span>
+                    <span class="stat-label">متوسط الأهداف</span>
+                </div>
+            </div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="tournament-progress"></div>
+                <span class="progress-text" id="progress-percentage">0%</span>
+            </div>
+        </section>
+
+        <!-- Qualification Legend -->
+        <section class="qualification-legend">
+            <h2>مفتاح التأهل</h2>
+            <div class="legend-items">
+                <div class="legend-item qualified">
+                    <span class="legend-color"></span>
+                    <span class="legend-text">مؤهل للنهائيات (المراكز 1-4)</span>
+                </div>
+                <div class="legend-item eliminated">
+                    <span class="legend-color"></span>
+                    <span class="legend-text">خارج التأهل (المراكز 5-7)</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Standings Table -->
+        <section class="standings-section">
+            <div class="table-container">
+                <table class="standings-table" id="standings-table">
+                    <thead>
+                        <tr>
+                            <th class="position-col">#</th>
+                            <th class="team-col">الفريق</th>
+                            <th class="matches-col">لعب</th>
+                            <th class="wins-col">فوز</th>
+                            <th class="draws-col">تعادل</th>
+                            <th class="losses-col">خسارة</th>
+                            <th class="goals-for-col">له</th>
+                            <th class="goals-against-col">عليه</th>
+                            <th class="goal-diff-col">الفارق</th>
+                            <th class="points-col">النقاط</th>
+                            <th class="form-col">الشكل</th>
+                        </tr>
+                    </thead>
+                    <tbody id="standings-tbody">
+                        <!-- Will be populated by JavaScript -->
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Playoff Bracket Preview -->
+        <section class="playoff-preview" id="playoff-section" style="display: none;">
+            <h2>معاينة النهائيات</h2>
+            <div class="bracket-preview">
+                <div class="semifinal">
+                    <h3>نصف النهائي الأول</h3>
+                    <div class="match-preview">
+                        <span class="team-1" id="team-1">المركز الأول</span>
+                        <span class="vs">×</span>
+                        <span class="team-4" id="team-4">المركز الرابع</span>
+                    </div>
+                </div>
+                <div class="semifinal">
+                    <h3>نصف النهائي الثاني</h3>
+                    <div class="match-preview">
+                        <span class="team-2" id="team-2">المركز الثاني</span>
+                        <span class="vs">×</span>
+                        <span class="team-3" id="team-3">المركز الثالث</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- League Statistics -->
+        <section class="league-stats">
+            <h2>إحصائيات البطولة</h2>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>أفضل هجوم</h3>
+                    <div class="stat-team" id="best-attack">
+                        <span class="team-name">-</span>
+                        <span class="stat-value">0 أهداف</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <h3>أفضل دفاع</h3>
+                    <div class="stat-team" id="best-defense">
+                        <span class="team-name">-</span>
+                        <span class="stat-value">0 أهداف</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <h3>الانتصارات على أرض الملعب</h3>
+                    <div class="stat-value" id="home-wins">0%</div>
+                </div>
+                <div class="stat-item">
+                    <h3>الانتصارات خارج الأرض</h3>
+                    <div class="stat-value" id="away-wins">0%</div>
+                </div>
+                <div class="stat-item">
+                    <h3>نسبة التعادل</h3>
+                    <div class="stat-value" id="draw-percentage">0%</div>
+                </div>
+                <div class="stat-item">
+                    <h3>أكثر الفرق تسجيلاً</h3>
+                    <div class="stat-team" id="top-scorer-team">
+                        <span class="team-name">-</span>
+                        <span class="stat-value">0 أهداف</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Form Guide -->
+        <section class="form-guide">
+            <h2>دليل الأداء الأخير</h2>
+            <div class="form-explanation">
+                <p>آخر 5 مباريات لكل فريق:</p>
+                <div class="form-legend">
+                    <span class="form-item win">F</span> فوز
+                    <span class="form-item draw">T</span> تعادل
+                    <span class="form-item loss">خ</span> خسارة
+                </div>
+            </div>
+        </section>
+
+        <!-- Last Updated -->
+        <section class="last-updated">
+            <p id="last-updated-text">آخر تحديث: <span id="update-time">-</span></p>
+            <button id="refresh-standings" class="refresh-btn">تحديث الترتيب</button>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار</p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <script type="module" src="js/standings.js"></script>
+</body>
+</html>

@@ -1,0 +1,491 @@
+/**
+ * Responsive CSS for Salfoon Ramadan League Platform
+ * Mobile-first responsive design with tablet and desktop breakpoints
+ */
+
+/* Mobile First Approach - Base styles are for mobile */
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 575.98px) {
+    /* Navigation adjustments for small screens */
+    .navbar {
+        padding: var(--spacing-sm) var(--spacing-md);
+        flex-wrap: wrap;
+    }
+    
+    .nav-brand h1 {
+        font-size: var(--font-size-lg);
+    }
+    
+    .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background-color: var(--surface-color);
+        flex-direction: column;
+        padding: var(--spacing-md);
+        box-shadow: 0 4px 15px var(--shadow-medium);
+        border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
+        gap: var(--spacing-sm);
+    }
+    
+    .nav-menu.active {
+        display: flex;
+    }
+    
+    .nav-toggle {
+        display: flex;
+    }
+    
+    .nav-toggle.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    
+    .nav-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+    
+    .nav-toggle.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+    
+    /* Main content adjustments */
+    .main-content {
+        padding: var(--spacing-md);
+    }
+    
+    /* Hero section mobile */
+    .hero {
+        padding: var(--spacing-xl) var(--spacing-md);
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-xxl);
+    }
+    
+    .hero-stats {
+        gap: var(--spacing-md);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-xxl);
+    }
+    
+    /* Match cards mobile */
+    .match-card {
+        padding: var(--spacing-md);
+    }
+    
+    .match-teams {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .team {
+        flex-direction: row;
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .team-logo {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .match-info {
+        order: -1;
+        padding: var(--spacing-sm);
+    }
+    
+    /* Countdown mobile */
+    .countdown {
+        gap: var(--spacing-sm);
+    }
+    
+    .countdown-item {
+        min-width: 60px;
+        padding: var(--spacing-sm);
+    }
+    
+    .countdown-number {
+        font-size: var(--font-size-lg);
+    }
+    
+    /* Result cards mobile */
+    .result-teams {
+        flex-direction: column;
+        gap: var(--spacing-lg);
+    }
+    
+    .team-result {
+        justify-content: center;
+        width: 100%;
+    }
+    
+    .team-result.away {
+        flex-direction: row;
+    }
+    
+    .team-score {
+        font-size: var(--font-size-xl);
+    }
+    
+    /* Standings table mobile */
+    .standings-preview-table {
+        font-size: var(--font-size-sm);
+    }
+    
+    .standings-preview-table th,
+    .standings-preview-table td {
+        padding: var(--spacing-sm);
+    }
+    
+    .team-info {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+    }
+    
+    .team-logo-small {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* News grid mobile */
+    .news-grid {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-md);
+    }
+    
+    .news-content {
+        padding: var(--spacing-md);
+    }
+    
+    .news-meta {
+        flex-direction: column;
+        gap: var(--spacing-xs);
+        align-items: flex-start;
+    }
+    
+    /* Footer mobile */
+    .footer {
+        padding: var(--spacing-md);
+    }
+    
+    .back-to-top {
+        bottom: 20px;
+        left: 20px;
+        width: 45px;
+        height: 45px;
+    }
+    
+    /* Section spacing mobile */
+    section {
+        margin-bottom: var(--spacing-xl);
+    }
+    
+    section h2 {
+        font-size: var(--font-size-xl);
+        margin-bottom: var(--spacing-md);
+    }
+}
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 576px) and (max-width: 991.98px) {
+    .navbar {
+        padding: var(--spacing-md) var(--spacing-lg);
+    }
+    
+    .main-content {
+        padding: var(--spacing-lg);
+    }
+    
+    .hero-stats {
+        gap: var(--spacing-xl);
+    }
+    
+    .match-teams {
+        flex-direction: row;
+    }
+    
+    .team {
+        flex-direction: column;
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .countdown {
+        gap: var(--spacing-md);
+    }
+    
+    .countdown-item {
+        min-width: 70px;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+    .navbar {
+        padding: var(--spacing-md) var(--spacing-xl);
+    }
+    
+    .main-content {
+        padding: var(--spacing-xl);
+    }
+    
+    .hero {
+        padding: var(--spacing-xxl) var(--spacing-xl);
+    }
+    
+    .news-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    /* Enhanced hover effects for desktop */
+    .match-card:hover {
+        transform: translateY(-5px);
+    }
+    
+    .news-card:hover {
+        transform: translateY(-3px);
+    }
+    
+    .view-all-btn:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+    .main-content {
+        max-width: 1400px;
+    }
+    
+    .navbar {
+        max-width: 1400px;
+    }
+    
+    .hero-stats {
+        gap: var(--spacing-xxl);
+    }
+    
+    .stat-number {
+        font-size: 3rem;
+    }
+}
+
+/* Landscape orientation adjustments */
+@media (orientation: landscape) and (max-height: 500px) {
+    .hero {
+        padding: var(--spacing-lg) var(--spacing-xl);
+    }
+    
+    .hero-title {
+        font-size: var(--font-size-xl);
+    }
+    
+    .hero-stats {
+        gap: var(--spacing-md);
+    }
+    
+    .stat-number {
+        font-size: var(--font-size-xl);
+    }
+}
+
+/* Print styles */
+@media print {
+    .header,
+    .nav-toggle,
+    .theme-toggle,
+    .back-to-top,
+    .loading-screen {
+        display: none !important;
+    }
+    
+    .main-content {
+        padding: 0;
+        max-width: none;
+    }
+    
+    .hero {
+        background: none !important;
+        color: black !important;
+        border: 2px solid #000;
+    }
+    
+    .match-card,
+    .result-card,
+    .news-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc;
+        break-inside: avoid;
+    }
+    
+    .standings-preview-table {
+        box-shadow: none !important;
+    }
+    
+    .standings-preview-table th {
+        background-color: #f0f0f0 !important;
+        color: black !important;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    :root {
+        --border-color: #000000;
+        --shadow-light: rgba(0, 0, 0, 0.5);
+        --shadow-medium: rgba(0, 0, 0, 0.7);
+        --shadow-heavy: rgba(0, 0, 0, 0.9);
+    }
+    
+    .match-card,
+    .result-card,
+    .news-card,
+    .standings-preview-table {
+        border: 2px solid var(--border-color);
+    }
+    
+    .nav-link:hover,
+    .nav-link.active {
+        border: 2px solid white;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+    
+    .loading-spinner {
+        animation: none;
+        border: 4px solid var(--primary-color);
+    }
+    
+    html {
+        scroll-behavior: auto;
+    }
+}
+
+/* Focus management for accessibility */
+@media (any-hover: none) {
+    .match-card:hover,
+    .news-card:hover,
+    .view-all-btn:hover {
+        transform: none;
+    }
+}
+
+/* Touch device optimizations */
+@media (any-pointer: coarse) {
+    .nav-link,
+    .theme-toggle,
+    .view-all-btn,
+    .back-to-top {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    .countdown-item {
+        min-width: 80px;
+        min-height: 60px;
+    }
+}
+
+/* Dark mode specific responsive adjustments */
+[data-theme="dark"] {
+    @media (max-width: 575.98px) {
+        .nav-menu {
+            background-color: var(--surface-color);
+            border-top: 1px solid var(--border-color);
+        }
+    }
+}
+
+/* RTL specific responsive adjustments */
+[dir="rtl"] {
+    @media (max-width: 575.98px) {
+        .nav-menu {
+            right: 0;
+            left: 0;
+        }
+        
+        .team-result.away {
+            flex-direction: row-reverse;
+        }
+        
+        .news-meta {
+            align-items: flex-end;
+        }
+    }
+    
+    .back-to-top {
+        left: auto;
+        right: 30px;
+    }
+    
+    @media (max-width: 575.98px) {
+        .back-to-top {
+            right: 20px;
+        }
+    }
+}
+
+/* Container queries support (future-proofing) */
+@supports (container-type: inline-size) {
+    .match-card {
+        container-type: inline-size;
+    }
+    
+    @container (max-width: 400px) {
+        .match-teams {
+            flex-direction: column;
+        }
+    }
+}
+
+/* Grid support fallback */
+@supports not (display: grid) {
+    .news-grid {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--spacing-xl);
+    }
+    
+    .news-card {
+        flex: 1 1 300px;
+    }
+}
+
+/* Flexbox support fallback */
+@supports not (display: flex) {
+    .navbar {
+        display: table;
+        width: 100%;
+    }
+    
+    .nav-brand,
+    .nav-menu,
+    .nav-controls {
+        display: table-cell;
+        vertical-align: middle;
+    }
+    
+    .hero-stats {
+        text-align: center;
+    }
+    
+    .stat-item {
+        display: inline-block;
+        margin: 0 var(--spacing-md);
+    }
+}

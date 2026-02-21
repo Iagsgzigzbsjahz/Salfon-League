@@ -1,0 +1,200 @@
+{
+  "teams": [
+    {
+      "id": "salfoon-hawks",
+      "name": "صقور سالفون",
+      "shortName": "صقور",
+      "logo": "images/teams/salfoon-hawks.png",
+      "founded": 2020,
+      "colors": {
+        "primary": "#1e40af",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "أحمد محمد", "position": "حارس مرمى", "number": 1},
+        {"name": "سالم علي", "position": "مدافع", "number": 2},
+        {"name": "محمد حسن", "position": "مدافع", "number": 3},
+        {"name": "علي أحمد", "position": "وسط", "number": 4},
+        {"name": "حسن محمد", "position": "وسط", "number": 5},
+        {"name": "يوسف سالم", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "points": 0
+      }
+    },
+    {
+      "id": "ahli-badan",
+      "name": "أهلي بعدان",
+      "shortName": "الأهلي",
+      "logo": "images/teams/ahli-badan.png",
+      "founded": 2018,
+      "colors": {
+        "primary": "#dc2626",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "خالد يوسف", "position": "حارس مرمى", "number": 1},
+        {"name": "عمر سالم", "position": "مدافع", "number": 2},
+        {"name": "فيصل أحمد", "position": "مدافع", "number": 3},
+        {"name": "ناصر علي", "position": "وسط", "number": 4},
+        {"name": "طارق محمد", "position": "وسط", "number": 5},
+        {"name": "بدر حسن", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "points": 0
+      }
+    },
+    {
+      "id": "bait-shahra",
+      "name": "بيت شحرة",
+      "shortName": "بيت شحرة",
+      "logo": "images/teams/bait-shahra.png",
+      "founded": 2019,
+      "colors": {
+        "primary": "#16a34a",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "راشد علي", "position": "حارس مرمى", "number": 1},
+        {"name": "سعد محمد", "position": "مدافع", "number": 2},
+        {"name": "جابر حسن", "position": "مدافع", "number": 3},
+        {"name": "منصور أحمد", "position": "وسط", "number": 4},
+        {"name": "عادل سالم", "position": "وسط", "number": 5},
+        {"name": "وليد يوسف", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 1,
+        "won": 1,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 4,
+        "goalsAgainst": 2,
+        "points": 3
+      }
+    },
+    {
+      "id": "may-22",
+      "name": "22 مايو",
+      "shortName": "22 مايو",
+      "logo": "images/teams/may-22.png",
+      "founded": 2017,
+      "colors": {
+        "primary": "#7c3aed",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "وائل حقيس", "position": "حارس مرمى", "number": 1},
+        {"name": "إبراهيم حقيس", "position": "مدافع", "number": 2},
+        {"name": "صالح حسن", "position": "مدافع", "number": 3},
+        {"name": "ماجد أحمد", "position": "وسط", "number": 4},
+        {"name": "نبيل سالم", "position": "وسط", "number": 5},
+        {"name": "زياد يوسف", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 1,
+        "won": 0,
+        "drawn": 0,
+        "lost": 1,
+        "goalsFor": 2,
+        "goalsAgainst": 4,
+        "points": 0
+      }
+    },
+    {
+      "id": "al-sabari",
+      "name": "الصباري",
+      "shortName": "الصباري",
+      "logo": "images/teams/al-sabari.png",
+      "founded": 2021,
+      "colors": {
+        "primary": "#ea580c",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "حمود علي", "position": "حارس مرمى", "number": 1},
+        {"name": "عامر محمد", "position": "مدافع", "number": 2},
+        {"name": "باسم حسن", "position": "مدافع", "number": 3},
+        {"name": "رامي أحمد", "position": "وسط", "number": 4},
+        {"name": "غسان سالم", "position": "وسط", "number": 5},
+        {"name": "هشام يوسف", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "points": 0
+      }
+    },
+    {
+      "id": "al-rubai",
+      "name": "الرباعي",
+      "shortName": "الرباعي",
+      "logo": "images/teams/al-rubai.png",
+      "founded": 2020,
+      "colors": {
+        "primary": "#0891b2",
+        "secondary": "#ffffff"
+      },
+      "squad": [
+        {"name": "جلال الزهيري", "position": "حارس مرمى", "number": 1},
+        {"name": "مالك النجار", "position": "مدافع", "number": 2},
+        {"name": "خالد الزهيري", "position": "مدافع", "number": 3},
+        {"name": "عمر النجار", "position": "وسط", "number": 4},
+        {"name": "علي حسن", "position": "وسط", "number": 5},
+        {"name": "محمد الزهيري", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "points": 0
+      }
+    },
+    {
+      "id": "ashbal-dajaj",
+      "name": "أشبال الدجاج",
+      "shortName": "الأشبال",
+      "logo": "images/teams/ashbal-dajaj.png",
+      "founded": 2019,
+      "colors": {
+        "primary": "#facc15",
+        "secondary": "#000000"
+      },
+      "squad": [
+        {"name": "فهد علي", "position": "حارس مرمى", "number": 1},
+        {"name": "نايف محمد", "position": "مدافع", "number": 2},
+        {"name": "عبدالعزيز حسن", "position": "مدافع", "number": 3},
+        {"name": "تركي أحمد", "position": "وسط", "number": 4},
+        {"name": "مشعل سالم", "position": "وسط", "number": 5},
+        {"name": "فواز يوسف", "position": "مهاجم", "number": 6}
+      ],
+      "statistics": {
+        "played": 0,
+        "won": 0,
+        "drawn": 0,
+        "lost": 0,
+        "goalsFor": 0,
+        "goalsAgainst": 0,
+        "points": 0
+      }
+    }
+  ]
+}

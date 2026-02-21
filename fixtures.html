@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>المباريات - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون رمضان</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link active">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <div class="page-header">
+            <h1>جدول المباريات</h1>
+            <p class="page-subtitle">جميع مباريات البطولة من اليوم الثالث إلى الثالث والعشرين من رمضان</p>
+        </div>
+
+        <!-- Filters and Controls -->
+        <section class="fixtures-controls">
+            <div class="controls-row">
+                <div class="filter-group">
+                    <label for="status-filter">تصفية حسب الحالة:</label>
+                    <select id="status-filter" class="filter-select">
+                        <option value="all">جميع المباريات</option>
+                        <option value="scheduled">المباريات المجدولة</option>
+                        <option value="played">المباريات المنتهية</option>
+                        <option value="postponed">المباريات المؤجلة</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="team-filter">تصفية حسب الفريق:</label>
+                    <select id="team-filter" class="filter-select">
+                        <option value="all">جميع الفرق</option>
+                        <!-- Will be populated by JavaScript -->
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label for="week-filter">تصفية حسب الأسبوع:</label>
+                    <select id="week-filter" class="filter-select">
+                        <option value="all">جميع الأسابيع</option>
+                        <option value="week1">الأسبوع الأول (3-9)</option>
+                        <option value="week2">الأسبوع الثاني (10-16)</option>
+                        <option value="week3">الأسبوع الثالث (17-23)</option>
+                    </select>
+                </div>
+
+                <div class="search-group">
+                    <input type="text" id="search-input" placeholder="البحث عن فريق..." class="search-input">
+                    <button id="clear-search" class="clear-btn">مسح</button>
+                </div>
+            </div>
+
+            <div class="view-controls">
+                <button id="view-list" class="view-btn active">عرض قائمة</button>
+                <button id="view-calendar" class="view-btn">عرض تقويم</button>
+                <button id="export-fixtures" class="export-btn">تصدير الجدول</button>
+            </div>
+        </section>
+
+        <!-- Quick Stats -->
+        <section class="fixtures-stats">
+            <div class="stats-row">
+                <div class="stat-item">
+                    <span class="stat-number" id="total-matches">21</span>
+                    <span class="stat-label">إجمالي المباريات</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="played-count">0</span>
+                    <span class="stat-label">مباراة لُعبت</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="scheduled-count">21</span>
+                    <span class="stat-label">مباراة مجدولة</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="postponed-count">0</span>
+                    <span class="stat-label">مباراة مؤجلة</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Next Match Highlight -->
+        <section class="next-match-highlight" id="next-match-section">
+            <h2>المباراة القادمة</h2>
+            <div id="next-match-card" class="highlight-match-card">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Recent Results -->
+        <section class="recent-results" id="recent-results-section">
+            <h2>آخر النتائج</h2>
+            <div id="recent-results-list" class="results-list">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </section>
+
+        <!-- Fixtures Display -->
+        <section class="fixtures-display">
+            <!-- List View -->
+            <div id="list-view" class="fixtures-list">
+                <div id="fixtures-container">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+
+            <!-- Calendar View -->
+            <div id="calendar-view" class="fixtures-calendar" style="display: none;">
+                <div id="calendar-container">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Postponed Matches Alert -->
+        <section class="postponed-alert" id="postponed-alert" style="display: none;">
+            <div class="alert-content">
+                <h3>⚠️ مباريات مؤجلة</h3>
+                <div id="postponed-matches-list">
+                    <!-- Will be populated by JavaScript -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Statistics -->
+        <section class="match-statistics">
+            <h2>إحصائيات المباريات</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>إجمالي الأهداف</h3>
+                    <span class="stat-value" id="total-goals">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>متوسط الأهداف</h3>
+                    <span class="stat-value" id="average-goals">0.0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>انتصارات أرض الملعب</h3>
+                    <span class="stat-value" id="home-wins">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>انتصارات خارج الأرض</h3>
+                    <span class="stat-value" id="away-wins">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>التعادلات</h3>
+                    <span class="stat-value" id="draws">0</span>
+                </div>
+                <div class="stat-card">
+                    <h3>أكثر المباريات تسجيلاً</h3>
+                    <div class="highest-scoring" id="highest-scoring">
+                        <span class="match-teams">-</span>
+                        <span class="match-score">-</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legend -->
+        <section class="fixtures-legend">
+            <h3>مفتاح الألوان</h3>
+            <div class="legend-items">
+                <div class="legend-item">
+                    <span class="legend-color scheduled"></span>
+                    <span class="legend-text">مباراة مجدولة</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color played"></span>
+                    <span class="legend-text">مباراة منتهية</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color postponed"></span>
+                    <span class="legend-text">مباراة مؤجلة</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color today"></span>
+                    <span class="legend-text">مباراة اليوم</span>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار </p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <!-- Match Details Modal -->
+    <div id="match-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">تفاصيل المباراة</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Will be populated by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="js/fixtures.js"></script>
+</body>
+</html>

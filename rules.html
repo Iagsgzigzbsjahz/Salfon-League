@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>قوانين البطولة - دوري الفقيد محمد قاسم الحجري</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="loading-screen" class="loading-screen">
+        <div class="loading-spinner"></div>
+        <p>جاري التحميل...</p>
+    </div>
+
+    <header class="header">
+        <nav class="navbar">
+            <div class="nav-brand">
+                <h1>دوري سالفون الرمضاني</h1>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+                <li><a href="fixtures.html" class="nav-link">المباريات</a></li>
+                <li><a href="standings.html" class="nav-link">الترتيب</a></li>
+                <li><a href="teams.html" class="nav-link">الفرق</a></li>
+                <li><a href="stats.html" class="nav-link">الإحصائيات</a></li>
+                <li><a href="news.html" class="nav-link">الأخبار</a></li>
+                <li><a href="rules.html" class="nav-link active">القوانين</a></li>
+            </ul>
+            <div class="nav-controls">
+                <button id="theme-toggle" class="theme-toggle" aria-label="تبديل الوضع المظلم">
+                    <span class="theme-icon">🌙</span>
+                </button>
+                <button class="nav-toggle" aria-label="فتح القائمة">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="hero">
+                <h1 class="hero-title">قوانين البطولة</h1>
+                <p class="hero-subtitle">دوري الفقيد محمد قاسم الحجري - النسخة الرسمية</p>
+            </div>
+        </section>
+
+        <!-- Tournament Format -->
+        <section class="rules-section">
+            <h2>نظام البطولة</h2>
+            <div class="rules-card">
+                <h3>التنسيق العام</h3>
+                <ul class="rules-list">
+                    <li><strong>عدد الفرق:</strong> 7 فرق مشاركة</li>
+                    <li><strong>نظام اللعب:</strong> دوري من دور واحد (كل فريق يلعب مع كل فريق مرة واحدة)</li>
+                    <li><strong>عدد المباريات:</strong> 21 مباراة في المجموع</li>
+                    <li><strong>فترة البطولة:</strong> من اليوم الثالث إلى اليوم الثالث والعشرين من شهر رمضان المبارك</li>
+                    <li><strong>المؤهلون للنهائيات:</strong> أول 4 فرق في الترتيب النهائي</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Scoring System -->
+        <section class="rules-section">
+            <h2>نظام النقاط</h2>
+            <div class="rules-card">
+                <h3>توزيع النقاط</h3>
+                <div class="scoring-grid">
+                    <div class="score-item win">
+                        <div class="score-icon">🏆</div>
+                        <div class="score-details">
+                            <h4>الفوز</h4>
+                            <p class="score-points">3 نقاط</p>
+                        </div>
+                    </div>
+                    <div class="score-item draw">
+                        <div class="score-icon">🤝</div>
+                        <div class="score-details">
+                            <h4>التعادل</h4>
+                            <p class="score-points">1 نقطة</p>
+                        </div>
+                    </div>
+                    <div class="score-item loss">
+                        <div class="score-icon">❌</div>
+                        <div class="score-details">
+                            <h4>الخسارة</h4>
+                            <p class="score-points">0 نقطة</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Ranking System -->
+        <section class="rules-section">
+            <h2>نظام الترتيب</h2>
+            <div class="rules-card">
+                <h3>معايير الترتيب (بالأولوية)</h3>
+                <ol class="ranking-criteria">
+                    <li>
+                        <strong>النقاط الإجمالية</strong>
+                        <p>الفريق الحاصل على أكبر عدد من النقاط يحتل المركز الأول</p>
+                    </li>
+                    <li>
+                        <strong>فارق الأهداف</strong>
+                        <p>في حالة التعادل في النقاط، يُحسب فارق الأهداف (الأهداف المسجلة - الأهداف المستقبلة)</p>
+                    </li>
+                    <li>
+                        <strong>عدد الأهداف المسجلة</strong>
+                        <p>في حالة التعادل في فارق الأهداف، يُحسب العدد الإجمالي للأهداف المسجلة</p>
+                    </li>
+                    <li>
+                        <strong>المواجهة المباشرة</strong>
+                        <p>في حالة التعادل في جميع المعايير السابقة، تُحسب نتيجة المواجهة المباشرة بين الفريقين</p>
+                    </li>
+                </ol>
+            </div>
+        </section>
+
+        <!-- Playoff System -->
+        <section class="rules-section">
+            <h2>نظام النهائيات</h2>
+            <div class="rules-card">
+                <h3>مرحلة خروج المغلوب</h3>
+                <div class="playoff-structure">
+                    <div class="playoff-round">
+                        <h4>نصف النهائي</h4>
+                        <div class="playoff-matches">
+                            <div class="playoff-match">
+                                <span class="team-position">المركز الأول</span>
+                                <span class="vs">×</span>
+                                <span class="team-position">المركز الرابع</span>
+                            </div>
+                            <div class="playoff-match">
+                                <span class="team-position">المركز الثاني</span>
+                                <span class="vs">×</span>
+                                <span class="team-position">المركز الثالث</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="playoff-arrow">⬇️</div>
+                    <div class="playoff-round">
+                        <h4>المباراة النهائية</h4>
+                        <div class="playoff-matches">
+                            <div class="playoff-match final">
+                                <span class="team-position">فائز نصف النهائي الأول</span>
+                                <span class="vs">×</span>
+                                <span class="team-position">فائز نصف النهائي الثاني</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Match Rules -->
+        <section class="rules-section">
+            <h2>قوانين المباريات</h2>
+            <div class="rules-card">
+                <h3>التنظيم والإجراءات</h3>
+                <ul class="rules-list">
+                    <li><strong>مدة المباراة:</strong> شوطان بمدة 45 دقيقة لكل شوط</li>
+                    <li><strong>الوقت الإضافي:</strong> يُحدد من قبل الحكم حسب ظروف المباراة</li>
+                    <li><strong>عدد اللاعبين:</strong> 11 لاعب لكل فريق (10 لاعبين + حارس مرمى)</li>
+                    <li><strong>التبديلات:</strong> مسموح بـ 5 تبديلات كحد أقصى لكل فريق</li>
+                    <li><strong>البطاقات:</strong> نظام البطاقات الصفراء والحمراء المعتاد</li>
+                    <li><strong>ركلات الترجيح:</strong> في حالة التعادل في مباريات النهائيات فقط</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Player Regulations -->
+        <section class="rules-section">
+            <h2>قوانين اللاعبين</h2>
+            <div class="rules-card">
+                <h3>الأهلية والمشاركة</h3>
+                <ul class="rules-list">
+                    <li><strong>التسجيل:</strong> يجب تسجيل جميع اللاعبين قبل بداية البطولة</li>
+                    <li><strong>العمر:</strong> لا توجد قيود عمرية محددة</li>
+                    <li><strong>الانتقالات:</strong> غير مسموحة بعد بداية البطولة</li>
+                    <li><strong>الإيقاف:</strong> اللاعب المطرود يُمنع من المباراة التالية</li>
+                    <li><strong>الإصابات:</strong> يُسمح بالعلاج الطبي داخل الملعب لمدة أقصاها 3 دقائق</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Awards and Recognition -->
+        <section class="rules-section">
+            <h2>الجوائز والتكريم</h2>
+            <div class="rules-card">
+                <h3>جوائز البطولة</h3>
+                <div class="awards-grid">
+                    <div class="award-item">
+                        <div class="award-icon">🏆</div>
+                        <h4>بطل البطولة</h4>
+                        <p>الفريق الفائز بالمباراة النهائية</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🥈</div>
+                        <h4>وصيف البطولة</h4>
+                        <p>الفريق الخاسر في المباراة النهائية</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">⚽</div>
+                        <h4>هداف البطولة</h4>
+                        <p>اللاعب الأكثر تسجيلاً للأهداف</p>
+                    </div>
+                    <div class="award-item">
+                        <div class="award-icon">🌟</div>
+                        <h4>أفضل لاعب</h4>
+                        <p>يُختار أفضل لاعب في كل مباراة</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Fair Play -->
+        <section class="rules-section">
+            <h2>اللعب النظيف</h2>
+            <div class="rules-card">
+                <h3>قواعد السلوك الرياضي</h3>
+                <ul class="rules-list">
+                    <li><strong>الاحترام:</strong> احترام الحكام واللاعبين والجمهور</li>
+                    <li><strong>الروح الرياضية:</strong> تقبل النتائج بروح رياضية عالية</li>
+                    <li><strong>عدم العنف:</strong> منع أي شكل من أشكال العنف أو السلوك غير اللائق</li>
+                    <li><strong>التشجيع الإيجابي:</strong> تشجيع الفرق بطريقة إيجابية ومحترمة</li>
+                    <li><strong>حماية الملعب:</strong> المحافظة على نظافة وسلامة مرافق الملعب</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Information -->
+        <section class="rules-section">
+            <h2>معلومات الاتصال</h2>
+            <div class="rules-card">
+                <h3>للاستفسارات والشكاوى</h3>
+                <div class="contact-info">
+                    <p><strong>إدارة البطولة:</strong> لجنة تنظيم دوري سالفون الرمضاني</p>
+                    <p><strong>المسؤول التقني:</strong> عمر النجار</p>
+                    <p><strong>ملاحظة:</strong> جميع القرارات التحكيمية نهائية ولا تقبل الاستئناف</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sponsor Section -->
+        <section class="sponsor">
+            <div class="sponsor-content">
+                <h3>الداعم الرسمي: عبدالكريم الحجري</h3>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p class="tribute">دعواتكم للفقيد بالرحمة</p>
+            <p class="copyright">&copy; 2026 دوري سالفون رمضان - جميع الحقوق محفوظة م/ عمر النجار</p>
+        </div>
+        <button id="back-to-top" class="back-to-top" aria-label="العودة للأعلى">
+            ↑
+        </button>
+    </footer>
+
+    <script type="module">
+        // Simple theme toggle and navigation for rules page
+        document.addEventListener('DOMContentLoaded', () => {
+            // Theme toggle functionality
+            const themeToggle = document.getElementById('theme-toggle');
+            const themeIcon = document.querySelector('.theme-icon');
+            
+            // Load saved theme
+            const savedTheme = localStorage.getItem('salfoon_preferences');
+            if (savedTheme) {
+                const preferences = JSON.parse(savedTheme);
+                if (preferences.darkMode) {
+                    document.body.setAttribute('data-theme', 'dark');
+                    themeIcon.textContent = '☀️';
+                }
+            }
+            
+            // Theme toggle event
+            themeToggle?.addEventListener('click', () => {
+                const currentTheme = document.body.getAttribute('data-theme');
+                const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                document.body.setAttribute('data-theme', newTheme);
+                themeIcon.textContent = newTheme === 'dark' ? '☀️' : '🌙';
+                
+                // Save preference
+                const preferences = JSON.parse(localStorage.getItem('salfoon_preferences') || '{}');
+                preferences.darkMode = newTheme === 'dark';
+                localStorage.setItem('salfoon_preferences', JSON.stringify(preferences));
+            });
+            
+            // Mobile menu toggle
+            const navToggle = document.querySelector('.nav-toggle');
+            const navMenu = document.querySelector('.nav-menu');
+            
+            navToggle?.addEventListener('click', () => {
+                navMenu.classList.toggle('active');
+                navToggle.classList.toggle('active');
+            });
+            
+            // Back to top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 300) {
+                    backToTopBtn?.classList.add('visible');
+                } else {
+                    backToTopBtn?.classList.remove('visible');
+                }
+            });
+            
+            backToTopBtn?.addEventListener('click', () => {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+            
+            // Hide loading screen
+            const loadingScreen = document.getElementById('loading-screen');
+            setTimeout(() => {
+                loadingScreen.style.opacity = '0';
+                setTimeout(() => {
+                    loadingScreen.style.display = 'none';
+                }, 300);
+            }, 500);
+        });
+    </script>
+
+    <style>
+        /* Additional styles specific to rules page */
+        .rules-section {
+            margin-bottom: var(--spacing-xxl);
+        }
+        
+        .rules-card {
+            background-color: var(--surface-color);
+            border-radius: var(--border-radius-lg);
+            padding: var(--spacing-xl);
+            box-shadow: 0 4px 15px var(--shadow-light);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .rules-card h3 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+            font-size: var(--font-size-xl);
+        }
+        
+        .rules-list {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .rules-list li {
+            padding: var(--spacing-md) 0;
+            border-bottom: 1px solid var(--border-color);
+            line-height: 1.6;
+        }
+        
+        .rules-list li:last-child {
+            border-bottom: none;
+        }
+        
+        .scoring-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .score-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-lg);
+            background-color: var(--background-color);
+        }
+        
+        .score-item.win {
+            border: 3px solid var(--success-color);
+        }
+        
+        .score-item.draw {
+            border: 3px solid var(--warning-color);
+        }
+        
+        .score-item.loss {
+            border: 3px solid var(--error-color);
+        }
+        
+        .score-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .score-points {
+            font-size: var(--font-size-xl);
+            font-weight: 700;
+            color: var(--primary-color);
+            margin: 0;
+        }
+        
+        .ranking-criteria {
+            counter-reset: criteria-counter;
+        }
+        
+        .ranking-criteria li {
+            counter-increment: criteria-counter;
+            padding: var(--spacing-lg);
+            margin-bottom: var(--spacing-md);
+            background-color: var(--background-color);
+            border-radius: var(--border-radius-md);
+            border-right: 4px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .ranking-criteria li::before {
+            content: counter(criteria-counter);
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: var(--primary-color);
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+        
+        .playoff-structure {
+            text-align: center;
+            padding: var(--spacing-xl);
+        }
+        
+        .playoff-round h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .playoff-matches {
+            display: flex;
+            flex-direction: column;
+            gap: var(--spacing-md);
+            align-items: center;
+        }
+        
+        .playoff-match {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-md);
+            padding: var(--spacing-md);
+            background-color: var(--background-color);
+            border-radius: var(--border-radius-md);
+            min-width: 300px;
+        }
+        
+        .playoff-match.final {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+        }
+        
+        .team-position {
+            flex: 1;
+            font-weight: 600;
+        }
+        
+        .vs {
+            font-size: var(--font-size-lg);
+            font-weight: 700;
+            color: var(--accent-color);
+        }
+        
+        .playoff-arrow {
+            font-size: 2rem;
+            margin: var(--spacing-lg) 0;
+        }
+        
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-lg);
+            margin-top: var(--spacing-lg);
+        }
+        
+        .award-item {
+            text-align: center;
+            padding: var(--spacing-lg);
+            background-color: var(--background-color);
+            border-radius: var(--border-radius-lg);
+            border: 2px solid var(--border-color);
+            transition: transform var(--transition-fast);
+        }
+        
+        .award-item:hover {
+            transform: translateY(-2px);
+            border-color: var(--primary-color);
+        }
+        
+        .award-icon {
+            font-size: 2rem;
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .award-item h4 {
+            color: var(--primary-color);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-info {
+            background-color: var(--background-color);
+            padding: var(--spacing-lg);
+            border-radius: var(--border-radius-md);
+            border-right: 4px solid var(--info-color);
+        }
+        
+        .contact-info p {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .contact-info p:last-child {
+            margin-bottom: 0;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .scoring-grid,
+            .awards-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .playoff-match {
+                min-width: auto;
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .ranking-criteria li::before {
+                position: static;
+                transform: none;
+                margin-bottom: var(--spacing-sm);
+            }
+            
+            .ranking-criteria li {
+                border-right: none;
+                border-top: 4px solid var(--primary-color);
+                text-align: center;
+            }
+        }
+    </style>
+</body>
+</html>
