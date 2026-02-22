@@ -25,22 +25,22 @@ class LocalStorageManager {
         try {
             // Load initial data from JSON files if storage is empty
             if (!this.exists(this.keys.TEAMS)) {
-                const teamsData = await this.loadFromFile('data/teams.json');
+                const teamsData = await this.loadFromFile('teams.json');
                 this.save(this.keys.TEAMS, teamsData);
             }
 
             if (!this.exists(this.keys.MATCHES)) {
-                const matchesData = await this.loadFromFile('data/matches.json');
+                const matchesData = await this.loadFromFile('matches.json');
                 this.save(this.keys.MATCHES, matchesData);
             }
 
             if (!this.exists(this.keys.NEWS)) {
-                const newsData = await this.loadFromFile('data/news.json');
+                const newsData = await this.loadFromFile('news.json');
                 this.save(this.keys.NEWS, newsData);
             }
 
             if (!this.exists(this.keys.CONFIG)) {
-                const configData = await this.loadFromFile('data/config.json');
+                const configData = await this.loadFromFile('config.json');
                 this.save(this.keys.CONFIG, configData);
             }
 
