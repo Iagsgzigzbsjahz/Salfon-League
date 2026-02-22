@@ -3,7 +3,7 @@
  * Handles news article CRUD operations, categorization, and display
  */
 
-import LocalStorageManager from 'storage.js';
+import LocalStorageManager from './storage.js';
 
 class NewsEngine {
     constructor() {

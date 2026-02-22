@@ -3,8 +3,8 @@
  * Handles news display, filtering, and user interactions
  */
 
-import LocalStorageManager from 'storage.js';
-import NewsEngine from 'newsEngine.js';
+import LocalStorageManager from './storage.js';
+import NewsEngine from './newsEngine.js';
 
 class NewsController {
     constructor() {
