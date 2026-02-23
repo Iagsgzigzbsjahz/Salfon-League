@@ -770,3 +770,22 @@ section h2 {
 .slide-in-left {
     animation: slideInLeft 0.6s ease-out;
 }
+/* حجز مساحة ثابتة للشعار لمنع الارتجاج */
+.team-logo {
+    width: 50px;           /* نفس العرض الذي تريده للشعارات */
+    height: 50px;          /* نفس الطول */
+    aspect-ratio: 1 / 1;   /* ضمان بقاء المساحة مربعة */
+    background-color: #eee; /* لون رمادي خفيف يظهر مكان الصورة المفقودة */
+    display: inline-block;
+    border-radius: 50%;    /* لجعلها دائرية */
+    object-fit: contain;
+}
+
+/* إذا فشلت الصورة في التحميل، يظل المربع الرمادي موجوداً ولا ينهار التصميم */
+.team-logo-container {
+    min-width: 50px;
+    min-height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
